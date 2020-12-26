@@ -2,18 +2,19 @@ default: &default
   adapter: postgis
   encoding: unicode
   host: localhost
+  username: postgres
+  password: <%= ENV['WANNA_CAFE_API_DATABASE_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: quero_cafe_api_development
+  database: wanna_cafe_api_development
+  schema_search_path: public
 
 test:
   <<: *default
-  database: quero_cafe_api_test
+  database: wanna_cafe_api_test
 
 production:
   <<: *default
-  database: quero_cafe_api_production
-  username: quero_cafe_api
-  password: <%= ENV['QUERO_CAFE_API_DATABASE_PASSWORD'] %>
+  database: wanna_cafe_api_production
