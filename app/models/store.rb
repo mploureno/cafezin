@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Store < ApplicationRecord
   has_many :ratings
   validates :lonlat, :name, :google_place_id, presence: true
