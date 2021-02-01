@@ -5,6 +5,10 @@ module Api
         places = GetGoogleCoffeeListService.new(params[:latitude], params[:longitude]).call
         render json: places
       end
+
+      def show
+        render json: GetGoogleCoffeeDetailsService.new(params[:id]).call
+      end
     end
   end
 end
